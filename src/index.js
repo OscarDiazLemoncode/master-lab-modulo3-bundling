@@ -1,1 +1,3 @@
-console.log("hello webpack");
+const userName = "Oscar lemoncode";
+const greet = `${userName} ${Math.random()}`;
+console.log(greet);
