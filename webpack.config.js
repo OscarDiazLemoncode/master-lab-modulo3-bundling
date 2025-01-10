@@ -1,11 +1,11 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 export default {
     // config entry point
     // entry: ["./src/index.js", "./src/mystyles.css"],
     entry: {
         app: "./src/index.js",
-        appStyles: "./src/mystyles.css",
     },
     // salida del archivp en /dist con el nombre del archivo
     // con la opción chunkhash lo hasheamos
@@ -25,7 +25,7 @@ export default {
             {
                 test: /\.css$/,
                 exclude: /node_modules/,
-                use: ["style-loader", "css-loader"],
+                use: [MiniCssExtractPlugin.loader, "css-loader"],
             },
         ],
     },
@@ -39,6 +39,9 @@ export default {
             filename: "index.html",
             scriptLoading: "blocking",
 
-        })
+        }),
+        new MiniCssExtractPlugin({
+            filename: "[name].[chunckhash].css"
+        }),
     ],
 };
