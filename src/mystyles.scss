@@ -1,14 +1,16 @@
-$background-color: indianred;
 $heading_primary_color: #0540ad;
-.red-background {
-  background-color: indianred;
-  color: white;
-}
+$primaryBackground: #e3e3e3;
+
 .heading_color {
   color: $heading_primary_color;
 }
 
 img {
-  width: 200px;
+  width: 100px;
   display: block;
+  margin: 0 auto;
+}
+.card {
+  margin: 0 auto;
+  text-align: center;
 }
