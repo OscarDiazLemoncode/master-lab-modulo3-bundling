@@ -7,10 +7,13 @@ const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 
 export default {
     context: path.resolve(__dirname, "src"),
+    resolve: {
+        extensions: [".js", ".jsx"],
+    },
     // config entry point
     // entry: ["./src/index.js", "./src/mystyles.css"],
     entry: {
-        app: "./index.js",
+        app: "./index.jsx",
         vendorStyles: ["../node_modules/bootstrap/dist/css/bootstrap.css"],
     },
     // salida del archivp en /dist con el nombre del archivo
@@ -24,7 +27,7 @@ export default {
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.jsx?$/,
                 exclude: /node_modules/,
                 loader: "babel-loader",
             },
@@ -43,6 +46,10 @@ export default {
             {
                 test: /\.(png|jpg|jpeg|gif|svg)$/,
                 type: "asset/resource",
+            },
+            {
+                test: /\.html$/,
+                use: "html-loader",
             },
         ],
     },

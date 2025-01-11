@@ -1,8 +1,11 @@
 $background-color: indianred;
-
+$heading_primary_color: #0540ad;
 .red-background {
   background-color: indianred;
   color: white;
+}
+.heading_color {
+  color: $heading_primary_color;
 }
 
 img {

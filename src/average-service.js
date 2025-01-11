@@ -1,4 +1,4 @@
-function getAvg(scores) {
+export function getAvg(scores) {
     return getTotalScore(scores) / scores.length;
 }
 

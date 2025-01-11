@@ -1,4 +1,17 @@
 import './mystyles.scss';
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import { AverageComponent } from './average-component';
+
+const root = createRoot(document.getElementById('root'));
+root.render(
+  <div>
+    <h1>Hola mundo!</h1>
+    <AverageComponent />
+  </div>
+);
+
+/* import './mystyles.scss';
 import logoImg from "./content/logo_1.png"
 import myFuncGetAvg from './average-service.js'
 
@@ -14,4 +27,4 @@ document.write(messageToDisplay);
 
 const img = document.createElement("img");
 img.src = logoImg;
-document.getElementById("imgContainer").appendChild(img);
+document.getElementById("imgContainer").appendChild(img); */
