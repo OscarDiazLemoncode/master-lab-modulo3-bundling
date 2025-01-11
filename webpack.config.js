@@ -6,6 +6,7 @@ export default {
     // entry: ["./src/index.js", "./src/mystyles.css"],
     entry: {
         app: "./src/index.js",
+        vendorStyles: ["./node_modules/bootstrap/dist/css/bootstrap.css"],
     },
     // salida del archivp en /dist con el nombre del archivo
     // con la opción chunkhash lo hasheamos
@@ -24,8 +25,15 @@ export default {
             },
             {
                 test: /\.css$/,
+                // exclude: /node_modules/,
+                // use: [MiniCssExtractPlugin.loader, "css-loader"],
+                use: ["style-loader", "css-loader"],
+            },
+            {
+                test: /\.scss$/,
                 exclude: /node_modules/,
-                use: [MiniCssExtractPlugin.loader, "css-loader"],
+                // use: ["style-loader", "css-loader", "sass-loader"],
+                use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
             },
         ],
     },
@@ -41,7 +49,7 @@ export default {
 
         }),
         new MiniCssExtractPlugin({
-            filename: "[name].[chunckhash].css"
+            filename: "[name][chunkhash].css"
         }),
     ],
 };
