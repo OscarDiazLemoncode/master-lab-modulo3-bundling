@@ -41,7 +41,17 @@ export default {
                 test: /\.scss$/,
                 exclude: /node_modules/,
                 // use: ["style-loader", "css-loader", "sass-loader"],
-                use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+                use: [MiniCssExtractPlugin.loader,
+                {
+                    loader: "css-loader",
+                    options: {
+                        modules: {
+                            exportLocalsConvention: "camelCase",
+                            localIdentName: "[path][name]__[local]--[hash:base64:5]",
+                        },
+                    },
+                },
+                    "sass-loader"],
             },
             {
                 test: /\.(png|jpg|jpeg|gif|svg)$/,

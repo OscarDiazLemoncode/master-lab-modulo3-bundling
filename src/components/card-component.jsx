@@ -3,12 +3,13 @@ import { Greet } from './greet-component';
 import { Logo } from './logo-component';
 import logoLemoncode from '../content/logo_1.png';
 import logoTextLemoncode from '../content/logo_2.png';
-import './card-component-styles.scss';
+import * as classes from './card-component-styles.scss';
 
 export const Card = () => {
+  console.log(classes);
   return (
     <>
-      <div className="card primaryBackground">
+      <div className={classes.card}>
         <Logo src={logoLemoncode} />
         <Greet text="Hola Mundo!" />
         <Logo src={logoTextLemoncode} />

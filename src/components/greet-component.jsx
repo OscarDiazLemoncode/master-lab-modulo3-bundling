@@ -1,7 +1,7 @@
 import React from 'react';
-import './greet-component-styles.scss';
+import * as classes from './greet-component-styles.scss';
 
 export const Greet = (props) => {
   const { text } = props;
-  return <h1 className="heading_color">{text}</h1>;
+  return <h1 className={classes.headingColor}>{text}</h1>;
 };
