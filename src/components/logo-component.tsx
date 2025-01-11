@@ -1,7 +1,11 @@
 import React from 'react';
 import * as classes from './logo-component-styles.scss';
 
-export const Logo = (props) => {
+interface Props {
+  src: string;
+}
+
+export const Logo: React.FunctionComponent<Props> = (props) => {
   const { src } = props;
   return (
     <div className={classes.imgContainer}>

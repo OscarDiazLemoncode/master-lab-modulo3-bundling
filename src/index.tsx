@@ -5,7 +5,7 @@ import { AverageComponent } from './components/average-component';
 import { Card } from './components/card-component';
 
 const rootElement = document.getElementById('root');
-if (rootElement) {
+if (rootElement && rootElement instanceof HTMLDivElement) {
   const root = createRoot(rootElement);
   root.render(
     <div>

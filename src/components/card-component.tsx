@@ -5,8 +5,7 @@ import logoLemoncode from '../content/logo_1.png';
 import logoTextLemoncode from '../content/logo_2.png';
 import * as classes from './card-component-styles.scss';
 
-export const Card = () => {
-  console.log(classes);
+export const Card: React.FC = () => {
   return (
     <>
       <div className={classes.card}>

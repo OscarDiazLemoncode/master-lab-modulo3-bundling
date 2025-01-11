@@ -8,12 +8,12 @@ const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 export default {
     context: path.resolve(__dirname, "src"),
     resolve: {
-        extensions: [".js", ".jsx"],
+        extensions: [".js", ".ts", ".tsx"],
     },
     // config entry point
     // entry: ["./src/index.js", "./src/mystyles.css"],
     entry: {
-        app: "./index.jsx",
+        app: "./index.tsx",
         // vendorStyles: ["../node_modules/bootstrap/dist/css/bootstrap.css"],
     },
     // salida del archivp en /dist con el nombre del archivo
@@ -27,7 +27,7 @@ export default {
     module: {
         rules: [
             {
-                test: /\.jsx?$/,
+                test: /\.tsx?$/,
                 exclude: /node_modules/,
                 loader: "babel-loader",
             },
@@ -48,6 +48,7 @@ export default {
                         modules: {
                             exportLocalsConvention: "camelCase",
                             localIdentName: "[path][name]__[local]--[hash:base64:5]",
+
                         },
                     },
                 },
@@ -63,9 +64,13 @@ export default {
             },
         ],
     },
+    devtool: "eval-source-map",
     devServer: {
         port: 8080,
         hot: true,
+        devMiddleware: {
+            stats: "errors-only"
+        },
     },
     plugins: [
         new HtmlWebpackPlugin({

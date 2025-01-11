@@ -1,10 +1,10 @@
-$borderColor: #cedb18;
+$borderColor: #0540ad;
 $borderRadius: 8px;
 
 .card {
   margin: 0 auto;
   text-align: center;
-  border: 2px solid $borderColor;
+  border: 1px solid $borderColor;
   width: fit-content;
   padding: 1rem;
   border-radius: $borderRadius;
