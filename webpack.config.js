@@ -14,7 +14,7 @@ export default {
     // entry: ["./src/index.js", "./src/mystyles.css"],
     entry: {
         app: "./index.jsx",
-        vendorStyles: ["../node_modules/bootstrap/dist/css/bootstrap.css"],
+        // vendorStyles: ["../node_modules/bootstrap/dist/css/bootstrap.css"],
     },
     // salida del archivp en /dist con el nombre del archivo
     // con la opción chunkhash lo hasheamos

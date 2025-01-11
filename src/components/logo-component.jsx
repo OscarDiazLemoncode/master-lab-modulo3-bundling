@@ -1,10 +1,11 @@
 import React from 'react';
-import logo from '../content/logo_1.png';
+import './logo-component-styles.scss';
 
-export const Logo = () => {
+export const Logo = (props) => {
+  const { src } = props;
   return (
     <div id="imgContainer">
-      <img src={logo} alt="Logo Lemoncode" />
+      <img src={src} alt="Logo Lemoncode" />
     </div>
   );
 };
