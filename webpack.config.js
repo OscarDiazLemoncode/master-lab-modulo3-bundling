@@ -1,12 +1,17 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import path from "path";
+import url from "url";
+
+const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 
 export default {
+    context: path.resolve(__dirname, "src"),
     // config entry point
     // entry: ["./src/index.js", "./src/mystyles.css"],
     entry: {
-        app: "./src/index.js",
-        vendorStyles: ["./node_modules/bootstrap/dist/css/bootstrap.css"],
+        app: "./index.js",
+        vendorStyles: ["../node_modules/bootstrap/dist/css/bootstrap.css"],
     },
     // salida del archivp en /dist con el nombre del archivo
     // con la opción chunkhash lo hasheamos
@@ -35,6 +40,10 @@ export default {
                 // use: ["style-loader", "css-loader", "sass-loader"],
                 use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
             },
+            {
+                test: /\.(png|jpg|jpeg|gif|svg)$/,
+                type: "asset/resource",
+            },
         ],
     },
     devServer: {
@@ -43,7 +52,7 @@ export default {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: "./src/index.html",
+            template: "./index.html",
             filename: "index.html",
             scriptLoading: "blocking",
 
